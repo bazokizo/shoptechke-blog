@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+   {% block title %} <title>Colorlib Balita &mdash; Minimal Blog Template</title>{% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300, 400,700" rel="stylesheet">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'fonts/ionicons/css/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/fontawesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    
+
+
+    <header role="banner">
+      <div class="top-bar">
+        <div class="container">
+          <div class="row">
+            <div class="col-9 social">
+              
+              <a href="https://www.facebook.com/ShopTechKe/"><span class="fa fa-facebook"></span></a>
+              <a href="https://www.instagram.com/shoptechke/"><span class="fa fa-instagram"></span></a>
+              <a href="{% url 'admin:index' %}"><span class="fa fa-cube"></span></a>
+              
+            </div>
+
+            
+            <div class="col-3 search-top">
+              <!-- <a href="#"><span class="fa fa-search"></span></a> -->
+              <form action="{% url 'search_results' %}" class="search-top-form">
+                <span class="icon fa fa-search"></span>
+                <input name="q" type="text" id="s" placeholder="Type keyword to search...">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container logo-wrap">
+        <div class="row pt-5">
+          <div class="col-12 text-center">
+            <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
+            <h1 class="site-logo"><a href="index.html">ShopTechKe Blog</a></h1>
+          </div>
+        </div>
+      </div>
+      
+      <nav class="navbar navbar-expand-md  navbar-light bg-light">
+        <div class="container">
+          
+         
+          <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'index' %}">Home</a>
+              </li>
+             
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="category.html" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown05">
+                  {% for cat in all_categories %}
+                  <a class="dropdown-item" href="{{ cat.get_absolute_url }}">{{cat}}</a>
+                  
+                  {% endfor %}
+                </div>
+
+
+              </li>
+              
+              
+            </ul>
+            
+          </div>
+        </div
+      </nav>
+    </header>
+    <!-- END header -->
+
+
+    {% block content %}
+    {% endblock  %}
+
+
+
+
+
+
+
+
+
+
+
+    {% block sidebar %}
+    <div class="col-md-12 col-lg-4 sidebar">
+            <div class="sidebar-box search-form-wrap">
+              <form action="{% url 'search_results' %}" class="search-form">
+                <div class="form-group">
+                  <span class="icon fa fa-search"></span>
+                  <input name="q" type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
+                </div>
+              </form>
+            </div>
+
+            <!-- END sidebar-box -->
+          
+            <div class="sidebar-box">
+              <div class="bio text-center">
+                <img src="{% static 'the_images/shop.jpg' %}" alt="Image Placeholder" class="img-fluid">
+                <div class="bio-body">
+                  <h2>ShopTechKe</h2>
+                  <p>If interested in any latest gadgets follow the link below to our online shop where your purchased item will be delivered at your doorstep</p>
+                  <p><a href="https://shoptechke.com/" class="btn btn-primary btn-sm">Link to shop</a></p>
+                  <p class="social">
+                    <a href="https://www.facebook.com/ShopTechKe/" class="p-2"><span class="fa fa-facebook"></span></a>
+                    
+                    <a href="https://www.instagram.com/shoptechke/" class="p-2"><span class="fa fa-instagram"></span></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+        
+            <!-- END sidebar-box --> 
+          
+            
+            <!-- END sidebar-box -->
+        
+            <div class="sidebar-box">
+              <h3 class="heading">Categories</h3>
+              {% for cat in all_categories %}
+              <ul class="categories">
+                <li><a href="cat.get_absolute_url">{{cat}} <span>{{cat.posts_count}}</span></a></li>
+                
+                {% endfor %}
+              </ul>
+            </div>
+          
+            <!-- END sidebar-box -->
+          
+            
+          </div>
+          {% endblock %}
+          <!-- END sidebar -->
+
+        </div>
+      </div>
+    </section>
+  
+    <footer class="site-footer">
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made  by <a href="https://colorlib.com" target="_blank">Martin Mambo </a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- END footer -->
+    
+    <!-- loader -->
+    <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
+
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-migrate-3.0.0.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+    <script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+
+    
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>
