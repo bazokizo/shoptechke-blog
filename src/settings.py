@@ -27,7 +27,7 @@ SECRET_KEY = '4j1m7uub(a18o1(jg1a$56x+e)r$s-l^_cr6o07_gw3%zmg2=t'
 DEBUG = True
 #DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['shoptechke-blog.herokuapp.com']
 
 
 # Application definition
